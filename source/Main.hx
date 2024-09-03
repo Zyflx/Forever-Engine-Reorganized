@@ -1,28 +1,23 @@
 package;
 
-import flixel.FlxG;
-import flixel.FlxGame;
-import flixel.FlxState;
-import flixel.addons.transition.FlxTransitionableState;
-import flixel.input.keyboard.FlxKey;
-import flixel.util.FlxColor;
 import haxe.CallStack.StackItem;
 import haxe.CallStack;
 import haxe.io.Path;
-import lime.app.Application;
-import meta.*;
-import meta.data.PlayerSettings;
-import meta.data.dependency.Discord;
-import meta.data.dependency.FNFTransition;
-import openfl.Assets;
+
 import openfl.Lib;
 import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.events.UncaughtErrorEvent;
-import sys.FileSystem;
-import sys.io.File;
-import sys.io.Process;
+
+import lime.app.Application;
+
+import flixel.FlxGame;
+import flixel.addons.transition.FlxTransitionableState;
+import flixel.input.keyboard.FlxKey;
+
+import forever.PlayerSettings;
+import forever.core.FNFTransition;
 
 // Here we actually import the states and metadata, and just the metadata.
 // It's nice to have modularity so that we don't have ALL elements loaded at the same time.
@@ -33,7 +28,7 @@ class Main extends Sprite
 	public static var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
 	public static var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
 
-	public static var initialState:Class<FlxState> = meta.state.TitleState; // Determine the state the game should begin at
+	public static var initialState:Class<FlxState> = engine.states.menus.TitleState; // Determine the state the game should begin at
 	public static var framerate:Int = #if (html5 || neko) 60 #else 120 #end; // How many frames per second the game should run at.
 
 	public static final gameVersion:String = '0.3.2h';
@@ -178,7 +173,7 @@ class Main extends Sprite
 	public static function switchState(target:FlxState)
 	{
 		// Custom made Trans in
-		if (!FlxTransitionableState.skipNextTransIn)
+		if (!`ansitionableState.skipNextTransIn)
 		{
 			FlxG.state.openSubState(new FNFTransition(0.35, false));
 			FNFTransition.finishCallback = function()
