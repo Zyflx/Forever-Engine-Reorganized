@@ -1,8 +1,4 @@
-package meta.data;
-
-import flixel.FlxG;
-
-using StringTools;
+package forever.core.components;
 
 class Highscore
 {

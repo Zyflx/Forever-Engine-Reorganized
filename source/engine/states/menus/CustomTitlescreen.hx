@@ -12,9 +12,6 @@ import flixel.input.gamepad.FlxGamepad;
 
 import engine.objects.Alphabet;
 
-import meta.data.*;
-import meta.state.menus.*;
-
 class CustomTitlescreen extends MusicBeatState
 {
 	static var initialized:Bool = false;

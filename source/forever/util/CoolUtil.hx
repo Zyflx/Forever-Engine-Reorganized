@@ -1,10 +1,5 @@
 package forever.util;
 
-import openfl.utils.Assets;
-import meta.state.PlayState;
-
-using StringTools;
-
 class CoolUtil
 {
 	public static final difficultyArray:Array<String> = ['EASY', "NORMAL", "HARD"];
@@ -32,22 +27,12 @@ class CoolUtil
 
 	public static inline function coolTextFile(path:String):Array<String>
 	{
-		var daList:Array<String> = Assets.getText(path).trim().split('\n');
-		for (i in 0...daList.length)
-			daList[i] = daList[i].trim();
-		return daList;
+		return [for (i in Assets.getText(path).trim().split('\n')) i.trim()];
 	}
 
 	public static inline function getOffsetsFromTxt(path:String):Array<Array<String>>
 	{
-		var fullText:String = Assets.getText(path);
-		var firstArray:Array<String> = fullText.split('\n');
-		var swagOffsets:Array<Array<String>> = [];
-
-		for (i in firstArray)
-			swagOffsets.push(i.split(' '));
-
-		return swagOffsets;
+		return [for (i in Assets.getText(path).split('\n')) i.split(' ')];
 	}
 
 	public static inline function returnAssetsLibrary(library:String, ?subDir:String = 'assets/images'):Array<String>
@@ -70,13 +55,7 @@ class CoolUtil
 
 	public static inline function getAnimsFromTxt(path:String):Array<Array<String>>
 	{
-		var fullText:String = Assets.getText(path);
-		var firstArray:Array<String> = fullText.split('\n');
-		var swagOffsets:Array<Array<String>> = [];
-
-		for (i in firstArray)
-			swagOffsets.push(i.split('--'));
-		return swagOffsets;
+		return [for (i in Assets.getText(path).split('\n')) i.split('--')];
 	}
 
 	public static function numberArray(max:Int, ?min = 0):Array<Int>

@@ -1,9 +1,6 @@
 package engine.subStates;
 
-import gameObjects.Boyfriend;
-import Conductor.BPMChangeEvent;
-import meta.state.*;
-import meta.state.menus.*;
+import engine.objects.Boyfriend;
 
 class GameOverSubstate extends MusicBeatSubState
 {
@@ -65,10 +62,10 @@ class GameOverSubstate extends MusicBeatSubState
 
 			if (PlayState.isStoryMode)
 			{
-				Main.switchState(new StoryMenuState());
+				Main.switchState(new engine.states.menus.StoryMenuState());
 			}
 			else
-				Main.switchState(new FreeplayState());
+				Main.switchState(new engine.states.menus.FreeplayState());
 		}
 
 		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.curFrame == 12)

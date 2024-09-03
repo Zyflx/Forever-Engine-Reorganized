@@ -1,8 +1,4 @@
-package gameObjects.background;
-
-import flixel.graphics.frames.FlxAtlasFrames;
-import meta.CoolUtil;
-import meta.data.dependency.FNFSprite;
+package engine.objects.stage;
 
 class BackgroundGirls extends FNFSprite
 {

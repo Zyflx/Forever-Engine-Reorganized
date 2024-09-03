@@ -1,8 +1,5 @@
 package forever.core.components;
 
-import gameObjects.userInterface.notes.*;
-import meta.state.PlayState;
-
 /**
 	Here's a class that calculates timings and judgements for the songs and such
 **/

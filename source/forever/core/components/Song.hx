@@ -1,11 +1,7 @@
 package forever.core.components;
 
 import haxe.Json;
-import haxe.format.JsonParser;
-import openfl.utils.Assets;
-import forever.song.Section.SwagSection;
-
-using StringTools;
+import Section.SwagSection;
 
 typedef SwagSong =
 {

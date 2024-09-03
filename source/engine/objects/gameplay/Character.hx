@@ -7,9 +7,6 @@ package engine.objects.gameplay;
 
 import flixel.graphics.frames.FlxAtlasFrames;
 
-import meta.*;
-import meta.data.*;
-
 typedef CharacterData =
 {
 	var offsetX:Float;

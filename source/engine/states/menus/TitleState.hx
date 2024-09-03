@@ -1,18 +1,7 @@
-package engine.states;
+package engine.states.menus;
 
-import lime.app.Application;
-
-import flixel.addons.display.FlxGridOverlay;
-import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
-import flixel.addons.transition.FlxTransitionableState;
-import flixel.addons.transition.TransitionData;
-import flixel.graphics.FlxGraphic;
 import flixel.input.gamepad.FlxGamepad;
-
 import engine.objects.Alphabet;
-
-import meta.data.*;
-import meta.state.menus.*;
 
 /**
 	I hate this state so much that I gave up after trying to rewrite it 3 times and just copy pasted the original code

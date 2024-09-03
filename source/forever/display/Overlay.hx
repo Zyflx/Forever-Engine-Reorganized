@@ -1,14 +1,13 @@
 package forever.display;
 
-import flixel.FlxG;
-using flixel.util.FlxStringUtil;
-
 import haxe.Timer;
 
 import openfl.events.Event;
 import openfl.system.System;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
+
+import flixel.util.FlxStringUtil.formatBytes;
 
 
 /**
@@ -66,7 +65,7 @@ class Overlay extends TextField
 			}
 			#end
 			if (displayMemory) // Current and Total Memory Usage
-				text += '${FlxStringUtil.formatBytes(mem)} / ${FlxStringUtil.formatBytes(memPeak)}\n';
+				text += '${formatBytes(mem)} / ${formatBytes(memPeak)}\n';
 		}
 	}
 

@@ -1,7 +1,5 @@
 package engine.objects.stage;
 
-import engine.graphics.FNFSprite;
-
 class BackgroundDancer extends FNFSprite
 {
 	public function new(x:Float, y:Float)

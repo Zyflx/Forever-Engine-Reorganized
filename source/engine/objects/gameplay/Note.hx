@@ -1,8 +1,5 @@
 package engine.objects.gameplay;
 
-import meta.*;
-import meta.data.*;
-
 import Strumline.UIStaticArrow;
 
 class Note extends FNFSprite

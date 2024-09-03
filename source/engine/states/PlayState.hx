@@ -2,23 +2,20 @@ package meta.state;
 
 import flixel.addons.effects.FlxTrail;
 import flixel.addons.transition.FlxTransitionableState;
+import flixel.math.FlxAngle;
 import flixel.input.keyboard.FlxKey;
 
 import openfl.display.GraphicsShader;
 import openfl.events.KeyboardEvent;
 import openfl.filters.ShaderFilter;
 
-import gameObjects.*;
-import gameObjects.userInterface.*;
-import gameObjects.userInterface.notes.*;
-import gameObjects.userInterface.notes.Strumline.UIStaticArrow;
+import engine.objects.Stage;
+import engine.objects.DialogueBox;
 
-import meta.*;
-import meta.data.*;
-import meta.state.charting.*;
-import meta.state.menus.*;
-import meta.subState.*;
+import engine.objects.gameplay.*;
+import engine.objects.gameplay.Strumline.UIStaticArrow;
 
+import forever.core.components.ChartLoader;
 import forever.core.components.Song.SwagSong;
 
 class PlayState extends MusicBeatState
@@ -497,9 +494,9 @@ class PlayState extends MusicBeatState
 				{
 					resetMusic();
 					if (FlxG.keys.pressed.SHIFT)
-						Main.switchState(new ChartingState());
+						Main.switchState(new engine.states.editors.ChartingState());
 					else
-						Main.switchState(new OriginalChartingState());
+						Main.switchState(new engine.states.editors.OriginalChartingState());
 				}
 
 				if ((FlxG.keys.justPressed.SIX))
@@ -620,9 +617,9 @@ class PlayState extends MusicBeatState
 
 				deaths += 1;
 
-				openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
+				openSubState(new engine.subStates.GameOverSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
-				FlxG.sound.play(Paths.sound('fnf_loss_sfx' + GameOverSubstate.stageSuffix));
+				FlxG.sound.play(Paths.sound('fnf_loss_sfx' + engine.subStates.GameOverSubstate.stageSuffix));
 
 				#if discord_rpc
 				Discord.changePresence("Game Over - " + songDetails, detailsSub, iconRPC);
@@ -1102,7 +1099,7 @@ class PlayState extends MusicBeatState
 		});
 
 		// open pause substate
-		openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
+		openSubState(new engine.subStates.PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 	}
 
 	override public function onFocus():Void
@@ -1242,7 +1239,7 @@ class PlayState extends MusicBeatState
 		else
 		{
 			FlxTween.tween(rating, {y: rating.y + 20}, 0.2, {
-				type: FlxTweenType.BACKWARD,
+				type: BACKWARD,
 				ease: FlxEase.circOut
 			});
 			FlxTween.tween(rating, {"scale.x": 0, "scale.y": 0}, 0.1, {
@@ -1312,7 +1309,7 @@ class PlayState extends MusicBeatState
 				numScore.x -= 95;
 				numScore.x -= ((comboString.length - 1) * 22);
 				FlxTween.tween(numScore, {y: numScore.y + 20}, 0.1, {
-					type: FlxTweenType.BACKWARD,
+					type: BACKWARD,
 					ease: FlxEase.circOut,
 				});
 			}
@@ -1564,7 +1561,7 @@ class PlayState extends MusicBeatState
 
 		if (!isStoryMode)
 		{
-			Main.switchState(new FreeplayState());
+			Main.switchState(new engine.states.menus.FreeplayState());
 		}
 		else
 		{
@@ -1585,7 +1582,7 @@ class PlayState extends MusicBeatState
 				transOut = FlxTransitionableState.defaultTransOut;
 
 				// change to the menu state
-				Main.switchState(new StoryMenuState());
+				Main.switchState(new engine.states.menus.StoryMenuState());
 
 				// save the week's score if the score is valid
 				if (SONG.validScore)
@@ -1731,7 +1728,7 @@ class PlayState extends MusicBeatState
 	function callTextbox()
 	{
 		var dialogPath = Paths.json(SONG.song.toLowerCase() + '/dialogue');
-		if (sys.FileSystem.exists(dialogPath))
+		if (FileSystem.exists(dialogPath))
 		{
 			startedCountdown = false;
 

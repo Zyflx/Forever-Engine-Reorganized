@@ -1,12 +1,12 @@
 package engine.states;
 
-import flixel.FlxSubState;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.ui.FlxUIState;
-import meta.*;
-import meta.data.*;
+
+import forever.Controls;
+import forever.core.FNFTransition;
+
 import Conductor.BPMChangeEvent;
-import meta.data.dependency.FNFTransition;
 
 /* 
 	Music beat state happens to be the first thing on my list of things to add, it just so happens to be the backbone of
@@ -38,7 +38,7 @@ class MusicBeatState extends FlxUIState
 	{
 		// dump
 		Paths.clearStoredMemory();
-		if ((!Std.isOfType(this, meta.state.PlayState)) && (!Std.isOfType(this, meta.state.charting.OriginalChartingState)))
+		if ((!Std.isOfType(this, PlayState)) && (!Std.isOfType(this, engine.states.editors.OriginalChartingState)))
 			Paths.clearUnusedMemory();
 
 		// state stuffs

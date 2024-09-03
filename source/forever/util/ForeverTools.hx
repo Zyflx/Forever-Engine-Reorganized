@@ -1,8 +1,5 @@
 package forever.util;
 
-import flixel.FlxG;
-import meta.data.*;
-
 /**
 	This class is used as an extension to many other forever engine stuffs, please don't delete it as it is not only exclusively used in forever engine
 	custom stuffs, and is instead used globally.

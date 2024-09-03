@@ -1,19 +1,9 @@
 package forever.util;
 
-import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.util.FlxColor;
-import gameObjects.userInterface.*;
-import gameObjects.userInterface.menu.*;
-import gameObjects.userInterface.notes.*;
-import gameObjects.userInterface.notes.Strumline.UIStaticArrow;
-import meta.data.Conductor;
-import meta.data.Section.SwagSection;
-import meta.data.Timings;
-import meta.state.PlayState;
-
-using StringTools;
+import engine.objects.Checkmark;
+import engine.objects.Note;
+import engine.objects.NoteSplash;
+import engine.objects.Strumline.UIStaticArrow;
 
 /**
 	Forever Assets is a class that manages the different asset types, basically a compilation of switch statements that are

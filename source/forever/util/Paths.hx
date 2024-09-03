@@ -3,19 +3,13 @@ package forever.util;
 /*
 	Aw hell yeah! something I can actually work on!
  */
-import flixel.FlxG;
 import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxAtlasFrames;
-import lime.utils.Assets;
-import meta.CoolUtil;
 import openfl.display.BitmapData;
 import openfl.display3D.textures.Texture;
 import openfl.media.Sound;
 import openfl.system.System;
 import openfl.utils.AssetType;
-import openfl.utils.Assets as OpenFlAssets;
-import sys.FileSystem;
-import sys.io.File;
 
 class Paths
 {
@@ -72,9 +66,9 @@ class Paths
 						currentTrackedTextures.remove(key);
 					}
 					@:privateAccess
-					if (openfl.Assets.cache.hasBitmapData(key))
+					if (Assets.cache.hasBitmapData(key))
 					{
-						openfl.Assets.cache.removeBitmapData(key);
+						Assets.cache.removeBitmapData(key);
 						FlxG.bitmap._cache.remove(key);
 					}
 					#if GARBAGE_COLLECTOR_INFO
@@ -103,7 +97,7 @@ class Paths
 			final obj = FlxG.bitmap._cache.get(key);
 			if (obj != null && !currentTrackedAssets.exists(key))
 			{
-				openfl.Assets.cache.removeBitmapData(key);
+				Assets.cache.removeBitmapData(key);
 				FlxG.bitmap._cache.remove(key);
 				obj.destroy();
 			}
@@ -195,7 +189,7 @@ class Paths
 		}*/
 
 		var levelPath = getLibraryPathForce(file, "mods");
-		if (OpenFlAssets.exists(levelPath, type))
+		if (Assets.exists(levelPath, type))
 			return levelPath;
 
 		return getPreloadPath(file);

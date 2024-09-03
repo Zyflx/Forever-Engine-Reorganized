@@ -1,9 +1,6 @@
 package engine.subStates;
 
-import engine.objects,Alphabet;
-
-import meta.state.*;
-import meta.state.menus.*;
+import engine.objects.Alphabet;
 
 class PauseSubState extends MusicBeatSubState
 {
@@ -118,9 +115,9 @@ class PauseSubState extends MusicBeatSubState
 					PlayState.deaths = 0;
 
 					if (PlayState.isStoryMode)
-						Main.switchState(new StoryMenuState());
+						Main.switchState(new engine.states.menus.StoryMenuState());
 					else
-						Main.switchState(new FreeplayState());
+						Main.switchState(new engine.states.menus.FreeplayState());
 			}
 		}
 

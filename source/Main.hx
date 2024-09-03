@@ -13,7 +13,6 @@ import openfl.events.UncaughtErrorEvent;
 import lime.app.Application;
 
 import flixel.FlxGame;
-import flixel.addons.transition.FlxTransitionableState;
 import flixel.input.keyboard.FlxKey;
 
 import forever.PlayerSettings;
