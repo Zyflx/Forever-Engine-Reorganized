@@ -13,6 +13,7 @@ import openfl.events.UncaughtErrorEvent;
 import lime.app.Application;
 
 import flixel.FlxGame;
+import flixel.addons.transition.FlxTransitionableState;
 import flixel.input.keyboard.FlxKey;
 
 import forever.PlayerSettings;
@@ -172,7 +173,7 @@ class Main extends Sprite
 	public static function switchState(target:FlxState)
 	{
 		// Custom made Trans in
-		if (!`ansitionableState.skipNextTransIn)
+		if (!FlxTransitionableState.skipNextTransIn)
 		{
 			FlxG.state.openSubState(new FNFTransition(0.35, false));
 			FNFTransition.finishCallback = function()
