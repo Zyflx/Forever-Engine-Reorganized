@@ -6,8 +6,6 @@ class UIStaticArrow extends FlxSprite
 		(depending on the release of this you might not have it cus I might rewrite skater to use this engine instead)
 		It's basically just code from the game itself but
 		it's in a separate class and I also added the ability to set offsets for the arrows.
-
-		uh hey you're cute ;)
 	 */
 	public var animOffsets:Map<String, Array<Dynamic>>;
 	public var babyArrowType:Int = 0;
