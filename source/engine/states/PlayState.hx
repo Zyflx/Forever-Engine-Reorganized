@@ -9,7 +9,7 @@ import openfl.display.GraphicsShader;
 import openfl.events.KeyboardEvent;
 import openfl.filters.ShaderFilter;
 
-import engine.objects.Stage;
+import engine.objects.stage.Stage;
 import engine.objects.DialogueBox;
 
 import engine.objects.gameplay.*;
