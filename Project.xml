@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+
+	<!-- _________________________ Application Settings _________________________ -->
+
+	<app title="Forever Engine" file="Forever-Engine" packageName="com.crowplexus.foreverenginelegacy" package="com.crowplexus.foreverenginelegacy" main="Main" company="crowplexus" />
+
+	<!--The flixel preloader is not accurate in Chrome. You can use it regularly if you embed the swf into a html file
+		or you can set the actual size of your file manually at "FlxPreloaderBase-onUpdate-bytesTotal"-->
+	<app preloader="flixel.system.FlxPreloader" />
+
+	<!--Minimum without FLX_NO_GAMEPAD: 11.8, without FLX_NO_NATIVE_CURSOR: 11.2-->
+	<set name="SWF_VERSION" value="11.8" />
+
+	<!-- ____________________________ Window Settings ___________________________ -->
+
+	<!--These window settings apply to all targets-->
+	<window width="1280" height="720" fps="" background="#000000" hardware="true" vsync="false" />
+
+	<!--HTML5-specific-->
+	<window if="html5" resizable="true" />
+
+	<!--Desktop-specific-->
+	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" />
+
+	<!--Mobile-specific-->
+	<window if="mobile" orientation="landscape" fullscreen="true" resizable="false" />
+
+	<!-- _____________________________ Path Settings ____________________________ -->
+
+	<set name="BUILD_DIR" value="export" />
+	<set name="BUILD_DIR" value="export/debug" if="debug" />
+	<set name="BUILD_DIR" value="export/release" unless="debug" />
+
+	<source path="source" />
+	<assets path="assets" />
+
+	<assets path="FE-CrashDialog.exe" type="template" if="windows release" />
+
+	<!-- _______________________________ Libraries ______________________________ -->
+
+	<haxedev set='webgl' if="html5" />
+
+	<haxelib name="flixel" />
+	<haxelib name="flixel-addons" />
+	<haxelib name="flixel-ui" />
+	<haxelib name="discord_rpc" if="cpp" />
+	<haxelib name="hxcpp-debug-server" if="debug" />
+
+	<!-- ______________________________ Haxedefines _____________________________ -->
+
+	<!--Optimise inputs, be careful you will get null errors if you don't use conditionals in your game-->
+	<haxedef name="FLX_NO_TOUCH" if="desktop" />
+
+	<!--Disable the Flixel core focus lost screen-->
+	<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />
+
+	<!--Disable the Flixel core debugger. Automatically gets set whenever you compile in release mode!-->
+	<haxedef name="FLX_NO_DEBUG" unless="debug" />
+
+	<!-- Allows higher memory allocation for the program, from 4GB max, to 12GB -->
+	<!-- <haxedef name="HXCPP_GC_BIG_BLOCKS" /> -->
+
+	<!--Enable this for Nape release builds for a serious peformance improvement-->
+	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
+
+	<!-- Always enable Null Object Reference check for crash dialog -->
+	<haxedef name="HXCPP_CHECK_POINTER" if="release" />
+	<haxedef name="HXCPP_STACK_LINE" if="release" />
+
+	<!-- _________________________________ Custom _______________________________ -->
+
+	<icon path="art/icon16.png" size='16' />
+	<icon path="art/icon32.png" size='32' />
+	<icon path="art/icon64.png" size='64' />
+	<icon path="art/icon128.png" size='128' />
+	<icon path="art/icon256.png" size='256' />
+	<icon path="art/icon512.png" size='512' />
+	<icon path="art/iconOG.png" />
+
+</project>
