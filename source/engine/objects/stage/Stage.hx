@@ -1,5 +1,8 @@
 package engine.objects.stage;
 
+import engine.objects.gameplay.Character;
+import engine.objects.gameplay.Boyfriend;
+
 /**
 	This is the stage class. It sets up everything you need for stages in a more organised and clean manner than the
 	base game. It's not too bad, just very crowded. I'll be adding stages as a separate

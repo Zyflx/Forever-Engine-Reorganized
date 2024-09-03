@@ -1,7 +1,6 @@
 package forever.core.components;
 
 import haxe.Json;
-import Section.SwagSection;
 
 typedef SwagSong =
 {

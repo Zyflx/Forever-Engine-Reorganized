@@ -1,10 +1,6 @@
 package forever.core.components;
 
 import engine.objects.gameplay.Note;
-import engine.states.editors.ChartingState;
-
-import Section.SwagSection;
-import Song.SwagSong;
 
 /**
 	This is the chartloader class. it loads in charts, but also exports charts, the chart parameters are based on the type of chart, 

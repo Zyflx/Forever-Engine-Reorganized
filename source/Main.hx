@@ -17,6 +17,7 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.input.keyboard.FlxKey;
 
 import forever.PlayerSettings;
+import forever.display.Overlay;
 import forever.core.FNFTransition;
 
 // Here we actually import the states and metadata, and just the metadata.

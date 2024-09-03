@@ -1,4 +1,4 @@
-package meta.state;
+package engine.states;
 
 import flixel.addons.effects.FlxTrail;
 import flixel.addons.transition.FlxTransitionableState;

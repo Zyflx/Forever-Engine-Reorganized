@@ -1,6 +1,6 @@
 package forever.core.components;
 
-import Song.SwagSong;
+import forever.core.components.Song.SwagSong;
 
 /*
 	Stuff like this is why this is a mod engine and not a rewrite.

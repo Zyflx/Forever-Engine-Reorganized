@@ -1,6 +1,7 @@
 package engine.states.menus;
 
 import flixel.addons.transition.FlxTransitionableState;
+import engine.objects.MenuItem;
 import engine.objects.MenuCharacter;
 
 class StoryMenuState extends MusicBeatState

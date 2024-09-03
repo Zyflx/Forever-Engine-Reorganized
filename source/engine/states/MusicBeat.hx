@@ -6,8 +6,6 @@ import flixel.addons.ui.FlxUIState;
 import forever.Controls;
 import forever.core.FNFTransition;
 
-import Conductor.BPMChangeEvent;
-
 /* 
 	Music beat state happens to be the first thing on my list of things to add, it just so happens to be the backbone of
 	most of the project in its entirety. It handles a couple of functions that have to do with actual music and songs and such.
@@ -31,7 +29,7 @@ class MusicBeatState extends FlxUIState
 
 	private var controls(get, never):Controls;
 	inline function get_controls():Controls
-		return PlayerSettings.player1.controls;
+		return forever.PlayerSettings.player1.controls;
 
 	// class create event
 	override function create()
@@ -153,7 +151,7 @@ class MusicBeatSubState extends FlxSubState
 
 	private var controls(get, never):Controls;
 	inline function get_controls():Controls
-		return PlayerSettings.player1.controls;
+		return forever.PlayerSettings.player1.controls;
 
 	// class 'step' event
 	override function update(elapsed:Float)

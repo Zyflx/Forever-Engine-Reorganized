@@ -40,7 +40,7 @@ import flixel.group.FlxGroup;
 import flixel.group.FlxSpriteGroup;
 import flixel.group.FlxGroup.FlxTypedGroup;
 
-import forver.util.*;
+import forever.util.*;
 
 import engine.graphics.FNFSprite;
 
@@ -48,8 +48,9 @@ import engine.states.PlayState;
 import engine.states.MusicBeat.MusicBeatState;
 import engine.states.MusicBeat.MusicBeatSubState;
 
-import forver.core.components.Conductor;
-import forver.core.components.Highscore;
-import forever.core.components.Timings;
+import forever.core.components.*;
+import forever.core.components.Conductor.BPMChangeEvent;
+import forever.core.components.Section.SwagSection;
+import forever.core.components.Song.SwagSong;
 
 using StringTools;

@@ -1,6 +1,6 @@
 package engine.subStates;
 
-import engine.objects.Boyfriend;
+import engine.objects.gameplay.Boyfriend;
 
 class GameOverSubstate extends MusicBeatSubState
 {

@@ -19,15 +19,9 @@ import flixel.addons.ui.FlxUITooltip.FlxUITooltipStyle;
 import flixel.ui.FlxButton;
 import flixel.ui.FlxSpriteButton;
 
-import Conductor.BPMChangeEvent;
-
-import gameObjects.*;
-import gameObjects.userInterface.*;
-import gameObjects.userInterface.notes.*;
-
-import meta.data.*;
-import meta.data.Section.SwagSection;
-import meta.data.Song.SwagSong;
+import engine.objects.gameplay.HealthIcon;
+import engine.objects.gameplay.Note;
+import engine.objects.gameplay.Strumline.UIStaticArrow;
 
 /**
 	In case you dont like the forever engine chart editor, here's the base game one instead.

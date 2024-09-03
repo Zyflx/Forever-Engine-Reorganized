@@ -16,15 +16,8 @@ import flixel.graphics.FlxGraphic;
 import flixel.ui.FlxButton;
 import flixel.util.FlxGradient;
 
-import meta.data.*;
-
-import gameObjects.*;
-import gameObjects.userInterface.*;
-import gameObjects.userInterface.notes.*;
-import gameObjects.userInterface.notes.Strumline.UIStaticArrow;
-
-import forever.core.components.Section.SwagSection;
-import forever.core.components.Song.SwagSong;
+import engine.objects.gameplay.Note;
+import engine.objects.gameplay.Strumline.UIStaticArrow;
 
 /**
 	As the name implies, this is the class where all of the charting state stuff happens, so when you press 7 the game

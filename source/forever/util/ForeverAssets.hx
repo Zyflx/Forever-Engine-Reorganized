@@ -1,9 +1,9 @@
 package forever.util;
 
 import engine.objects.Checkmark;
-import engine.objects.Note;
-import engine.objects.NoteSplash;
-import engine.objects.Strumline.UIStaticArrow;
+import engine.objects.gameplay.NoteSplash;
+import engine.objects.gameplay.Note;
+import engine.objects.gameplay.Strumline.UIStaticArrow;
 
 /**
 	Forever Assets is a class that manages the different asset types, basically a compilation of switch statements that are
