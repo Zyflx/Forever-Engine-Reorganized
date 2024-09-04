@@ -49,7 +49,7 @@ class CustomTitlescreen extends MusicBeatState
 		if (!initialized)
 		{
 			///*
-			#if desktop
+			#if hxdiscord_rpc
 			Discord.changePresence('TITLE SCREEN');
 			#end
 

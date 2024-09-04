@@ -71,6 +71,9 @@
 	<!--Disable deprecated warnings-->
 	<haxedef name='no-deprecation-warnings' />
 
+	<!-- Disable Discord IO Thread -->
+	<haxedef name="DISCORD_DISABLE_IO_THREAD" if="hxdiscord_rpc" />
+
 	<!-- _________________________________ Custom _______________________________ -->
 
 	<icon path="art/icon16.png" size='16' />

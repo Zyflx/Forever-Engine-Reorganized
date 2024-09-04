@@ -85,7 +85,7 @@ class FreeplayState extends MusicBeatState
 		// LOAD MUSIC
 		// ForeverTools.resetMenuMusic();
 
-		#if desktop
+		#if hxdiscord_rpc
 		Discord.changePresence('MENU SCREEN', 'Freeplay Menu');
 		#end
 

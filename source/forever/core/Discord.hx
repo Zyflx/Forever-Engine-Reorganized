@@ -1,6 +1,6 @@
 package forever.core;
 
-#if desktop
+#if hxdiscord_rpc
 import hxdiscord_rpc.Discord as HxDiscord;
 import hxdiscord_rpc.Types;
 #end
@@ -12,7 +12,7 @@ class Discord
 	private static var initialized:Bool = false;
 	private static var discPresence:DiscordRichPresence = DiscordRichPresence.create();
 
-	#if desktop
+	#if hxdiscord_rpc
 	public static function initializeRPC():Void
 	{
 		if (initialized) return;

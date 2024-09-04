@@ -621,7 +621,7 @@ class PlayState extends MusicBeatState
 
 				FlxG.sound.play(Paths.sound('fnf_loss_sfx' + engine.subStates.GameOverSubstate.stageSuffix));
 
-				#if desktop
+				#if hxdiscord_rpc
 				Discord.changePresence("Game Over - " + songDetails, detailsSub, iconRPC);
 				#end
 			}
@@ -1118,7 +1118,7 @@ class PlayState extends MusicBeatState
 
 	public static function updateRPC(pausedRPC:Bool)
 	{
-		#if desktop
+		#if hxdiscord_rpc
 		var displayRPC:String = (pausedRPC) ? detailsPausedText : songDetails;
 
 		if (PlayState.current.health > 0)
@@ -1340,7 +1340,7 @@ class PlayState extends MusicBeatState
 
 			resyncVocals();
 
-			#if desktop
+			#if hxdiscord_rpc
 			// Song duration in a float, useful for the time left feature
 			songLength = songMusic.length;
 
