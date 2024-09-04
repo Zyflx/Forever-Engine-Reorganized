@@ -55,17 +55,12 @@ class Overlay extends TextField
 
 		if (visible)
 		{
-			text = ''; // set up the text itself
-			if (displayFps) // Framerate
-				text += '${times.length} FPS\n';
-			#if !neko // Current Game State
-			if (displayExtra && FlxG.state != null) {
-				text += 'State: ${Type.getClassName(Type.getClass(FlxG.state))}\n';
-				text += 'Objects: ${FlxG.state.countLiving()} (Dead: ${FlxG.state.countDead()})\n';
-			}
+			text = '${times.length} FPS\n' // Framerate
+			#if !neko
+			+ (displayExtra ? 'State: ${Type.getClassName(Type.getClass(FlxG.state))}\n' : "")
+			+ (displayExtra ? 'Objects: ${FlxG.state.countLiving()} (Dead: ${FlxG.state.countDead()})\n' : "")
 			#end
-			if (displayMemory) // Current and Total Memory Usage
-				text += '${formatBytes(mem)} / ${formatBytes(memPeak)}\n';
+			+ (displayMemory ? '${formatBytes(mem)} / ${formatBytes(memPeak)}\n' : "")
 		}
 	}
 
