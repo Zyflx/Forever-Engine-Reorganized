@@ -37,7 +37,7 @@ class OptionsMenuState extends MusicBeatState
 
 		// NOTE : Make sure to check Init.hx if you are trying to add options.
 
-		#if discord_rpc
+		#if desktop
 		Discord.changePresence('MENU SCREEN', 'Options Menu');
 		#end
 
