@@ -28,7 +28,7 @@ class Discord
 		{
 			while (true)
 			{
-				#if DISCORD_DISABLE_TO_THREAD
+				#if DISCORD_DISABLE_IO_THREAD
 				HxDiscord.UpdateConnection();
 				#end
 				HxDiscord.RunCallbacks();
