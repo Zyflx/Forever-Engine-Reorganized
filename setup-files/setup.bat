@@ -15,19 +15,12 @@ TIMEOUT 4 >nul
 pause
 cls
 
-title Forever Engine Setup - Installing HaxeFlixel
-echo It is time to install the engine that Funkin' uses - HaxeFlixel.
-haxelib install lime
-haxelib install openfl
-haxelib install flixel
-haxelib run lime setup flixel
-haxelib run lime setup
-haxelib install flixel-tools
-haxelib run flixel-tools Setup
-
-title Forever Engine Setup - Installing Additional Libraries
-haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-haxelib install hxcpp-debug-server
+title Forever Engine Setup - Installing HMM and libraries
+echo It is time to install the libraries that Funkin' uses with the help of HMM (Haxe Module Manager).
+haxelib --global install hmm
+haxelib --global run hmm setup
+cd ..
+hmm install
 cls
 
 title Forever Engine Setup - The End!
