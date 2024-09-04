@@ -60,7 +60,7 @@ class Overlay extends TextField
 			+ (displayExtra ? 'State: ${Type.getClassName(Type.getClass(FlxG.state))}\n' : "")
 			+ (displayExtra ? 'Objects: ${FlxG.state.countLiving()} (Dead: ${FlxG.state.countDead()})\n' : "")
 			#end
-			+ (displayMemory ? '${formatBytes(mem)} / ${formatBytes(memPeak)}\n' : "")
+			+ (displayMemory ? '${formatBytes(mem)} / ${formatBytes(memPeak)}\n' : "");
 		}
 	}
 
