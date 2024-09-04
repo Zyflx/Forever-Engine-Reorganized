@@ -31,7 +31,7 @@ class MainMenuState extends MusicBeatState
 		// make sure the music is playing
 		ForeverTools.resetMenuMusic();
 
-		#if hxdiscord_rpc
+		#if discord_rpc
 		Discord.changePresence('MENU SCREEN', 'Main Menu');
 		#end
 

@@ -1,94 +1,79 @@
 package forever.core;
 
-#if hxdiscord_rpc
-import hxdiscord_rpc.Discord as HxDiscord;
-import hxdiscord_rpc.Types;
+#if discord_rpc
+import discord_rpc.DiscordRpc;
 #end
-
 import lime.app.Application;
 
+/**
+	Discord Rich Presence, both heavily based on Izzy Engine and the base game's, as well as with a lot of help 
+	from the creator of izzy engine because I'm dummy and dont know how to program discord
+**/
 class Discord
 {
-	private static var initialized:Bool = false;
-	private static var discPresence:DiscordRichPresence = DiscordRichPresence.create();
-
-	#if hxdiscord_rpc
-	public static function initializeRPC():Void
+	#if discord_rpc
+	// set up the rich presence initially
+	public static function initializeRPC()
 	{
-		if (initialized) return;
-
-		final evenHandlers:DiscordEventHandlers = DiscordEventHandlers.create();
-		evenHandlers.ready = cpp.Function.fromStaticFunction(onReady);
-		evenHandlers.disconnected = cpp.Function.fromStaticFunction(onDisconnected);
-		evenHandlers.errored = cpp.Function.fromStaticFunction(onError);
-
-		HxDiscord.Initialize('1031181637863620708', cpp.RawPointer.addressOf(evenHandlers), 1, null);
-
-		Thread.create(() ->
-		{
-			while (true)
-			{
-				#if DISCORD_DISABLE_IO_THREAD
-				HxDiscord.UpdateConnection();
-				#end
-				HxDiscord.RunCallbacks();
-				Sys.sleep(2);
-			}
+		DiscordRpc.start({
+			clientID: "1031181637863620708",
+			onReady: onReady,
+			onError: onError,
+			onDisconnected: onDisconnected
 		});
 
+		// THANK YOU GEDE
 		Application.current.window.onClose.add(shutdownRPC);
-
-		initialized = true;
 	}
 
-	static function onReady(req:cpp.RawConstPointer<DiscordUser>):Void
+	// from the base game
+	static function onReady()
 	{
-		final user:String = req[0].username;
-		final globalName:String = req[0].username;
-		final discrim:String = req[0].discriminator;
-
-		if (Std.parseInt(cast(req[0].discriminator, String)) != 0)
-			trace('Successfully connected to user ${user}#${discrim} ($globalName)');
-		else
-			trace('Successfully connected to user ${user} ($globalName)');
-
-		discPresence.state = null;
-		discPresence.details = '';
-		discPresence.largeImageKey = 'fel-logo';
-		discPresence.largeImageText = 'Forever Engine Legacy';
+		DiscordRpc.presence({
+			details: "",
+			state: null,
+			largeImageKey: 'fel-logo',
+			largeImageText: "Forever Engine Legacy"
+		});
 	}
 
-	static function onError(_code:Int, _message:cpp.ConstCharStar):Void
+	static function onError(_code:Int, _message:String)
 	{
 		trace('Error! $_code : $_message');
 	}
 
-	static function onDisconnected(_code:Int, _message:cpp.ConstCharStar):Void
+	static function onDisconnected(_code:Int, _message:String)
 	{
 		trace('Disconnected! $_code : $_message');
 	}
 
-	public static function changePresence(details:String = '', state:Null<String> = '', ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float):Void
+	//
+
+	public static function changePresence(details:String = '', state:Null<String> = '', ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float)
 	{
 		var startTimestamp:Float = (hasStartTimestamp) ? Date.now().getTime() : 0;
 
 		if (endTimestamp > 0)
 			endTimestamp = startTimestamp + endTimestamp;
 
-		discPresence.state = state;
-		discPresence.details = details;
-		discPresence.smallImageKey = smallImageKey;
-		discPresence.largeImageKey = 'fel-logo';
-		discPresence.largeImageText = 'Forever Engine Legacy';
-		discPresence.startTimestamp = Std.int(startTimestamp * 0.001);
-		discPresence.endTimestamp = Std.int(endTimestamp * 0.001);
+		DiscordRpc.presence({
+			details: details,
+			state: state,
+			largeImageKey: 'fel-logo',
+			largeImageText: "Forever Engine Legacy",
+			smallImageKey: smallImageKey,
+			// Obtained times are in milliseconds so they are divided so Discord can use it
+			startTimestamp: Std.int(startTimestamp * 0.001),
+			endTimestamp: Std.int(endTimestamp * 0.001)
+		});
 
-		HxDiscord.UpdatePresence(cpp.RawConstPointer.addressOf(discPresence));
+		// trace('Discord RPC Updated. Arguments: $details, $state, $smallImageKey, $hasStartTimestamp, $endTimestamp');
 	}
 
-	public static function shutdownRPC():Void
+	public static function shutdownRPC()
 	{
-		HxDiscord.Shutdown();
+		// borrowed from izzy engine -- somewhat, at least
+		DiscordRpc.shutdown();
 	}
 	#end
 }
